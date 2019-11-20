@@ -27,4 +27,8 @@ quarkus.hibernate-orm.database.generation=drop-and-create
 ### Projekt starten
 ``` mvnw compile quarkus:dev ```
 
+### Endpoints
 
+``` http://localhost:8080/api/member/findAll ```
+``` http://localhost:8080/api/operation/findAll ```
+``` http://localhost:8080/api/vehicle/findAll ```
