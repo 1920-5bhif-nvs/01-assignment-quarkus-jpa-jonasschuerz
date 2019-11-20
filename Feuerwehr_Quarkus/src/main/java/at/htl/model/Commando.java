@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @XmlRootElement
 @Entity
-@Table(name = "Commando")
+@Table(name = "COMMANDO")
 public class Commando extends Member {
 
     @Column

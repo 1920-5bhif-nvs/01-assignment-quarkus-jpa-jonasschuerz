@@ -1,13 +1,21 @@
 package at.htl.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
 @XmlRootElement
 @Entity
-@Table(name = "Vehicle")
+@Table(name = "VEHICLE")
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn
 @NamedQueries({
         @NamedQuery(name = "Vehicle.findAll",query = "select v from Vehicle v")
 })
@@ -23,8 +31,10 @@ public class Vehicle {
     @Column
     private String brand;
 
+
     //region Constructors
     public Vehicle(int mileage, LocalDate firstRegistration, String brand) {
+        this();
         this.mileage = mileage;
         this.firstRegistration = firstRegistration;
         this.brand = brand;
@@ -37,6 +47,7 @@ public class Vehicle {
 
 
     //region Getter and Setter
+
     public Long getId() {
         return id;
     }

@@ -6,10 +6,11 @@ import java.time.LocalDate;
 
 @XmlRootElement
 @Entity
-@Table(name = "Member")
+@Table(name = "MEMBER")
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn
 @NamedQueries({
-        @NamedQuery(name = "Member.findAll",query = "select m from Member m")
+        @NamedQuery(name = "Member.findAll", query = "SELECT t from Member t")
 })
 public class Member {
 
@@ -28,6 +29,7 @@ public class Member {
     protected LocalDate involvedSince;
 
     public Member(String name, String rank, String mail, LocalDate involvedSince) {
+        this();
         this.name = name;
         this.rank = rank;
         this.mail = mail;
@@ -39,6 +41,7 @@ public class Member {
     }
 
     //region Getter and Setter
+
     public Long getId() {
         return id;
     }

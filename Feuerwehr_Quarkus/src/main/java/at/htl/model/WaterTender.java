@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @XmlRootElement
 @Entity
-@Table(name = "WaterTender")
+@Table(name = "WATERTENDER")
 public class WaterTender extends Vehicle {
 
     @Column
